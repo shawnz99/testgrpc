@@ -4,7 +4,7 @@ import (
 	"context"
 	"net"
 
-	pb "testgrpc"
+	pb "github.com/shawnz99/testgrpc/api"
 
 	"google.golang.org/grpc"
 )
@@ -22,5 +22,5 @@ func (s *server) Chat(ctx context.Context, in *pb.Msg) (*pb.Reply, error) {
 
 func main() {
 	s := grpc.NewServer()
-	chat.RegisterChatServer(s, &server{})
+	pb.RegisterChatServer(s, &server{})
 }
