@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+option go_package = "./testgrpc";
+
+package testgrpc;
+
+
+service Chat {
+    rpc RouteChat(Msg) returns (Reply) {}
+}
+
+
+message Msg {
+    string sender = 1;
+    string recipient = 2;
+    bytes data = 3;
+}
+
+
+message Reply {
+    string sender = 1;
+    string recipient = 2;
+    bytes data = 3;
+}
